@@ -5,11 +5,11 @@ import android.widget.TextView;
 
 import se.kth.csc.iprog.dinnerplanner.android.R;
 
-public class ExampleView {
+public class Banner {
 
 	View view;
 
-	public ExampleView(View view) {
+	public Banner(View view) {
 
 		// store in the class the reference to the Android View
 		this.view = view;

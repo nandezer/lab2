@@ -7,14 +7,9 @@ public class DinnerModel {
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
-	
-	/**
-	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
-	 * When you do this you will have all the needed fields and methods
-	 * for the dinner planner (number of guests, selected dishes, etc.). 
-	 */
-	
-	
+	Set<Dish> selectedDishes = new HashSet<Dish>();
+	int guestNum;
+    int dishNum;
 	/**
 	 * The constructor of the overall model. Set the default values here
 	 */
@@ -94,7 +89,86 @@ public class DinnerModel {
 		}
 		return result;
 	}
-	
-	
+    /**
+     * TODO: For Lab2 you need to implement the IDinnerModel interface.
+     * When you do this you will have all the needed fields and methods
+     * for the dinner planner (number of guests, selected dishes, etc.).
+     */
+
+    public int getNumberOfGuests(){
+        return guestNum;
+    }
+    public void setNumberOfGuests(int numberOfGuests){
+        guestNum = numberOfGuests;
+    }
+
+    public int getNumberOfDishes(){
+       // TODO: Revisar numero de platos (par que sirve).
+        dishNum = selectedDishes.size();
+        return dishNum;
+    }
+    public void setNumberOfDishes(int numberOfDishes){
+        dishNum = numberOfDishes;
+    }
+
+    /**
+     * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
+     */
+    public Dish getSelectedDish(int type){
+        for(Dish d : selectedDishes){
+            if(d.getType() == type){
+                return d;
+            }
+        }
+       return null;
+    }
+
+    /**
+     * Returns all the dishes on the menu.
+     */
+    public Set<Dish> getFullMenu(){
+        return selectedDishes;
+    }
+
+    /**
+     * Returns all ingredients for all the dishes on the menu.
+     */
+    public Set<Ingredient> getAllIngredients(){
+        Set<Ingredient> ingredients = new HashSet<Ingredient>();
+        for (Dish d : selectedDishes){
+            for(Ingredient i : d.getIngredients()){
+                ingredients.add(i);
+            }
+        }
+        return ingredients;
+    }
+
+    /**
+     * Returns the total price of the menu (all the ingredients multiplied by number of guests).
+     */
+    public float getTotalMenuPrice(){
+        float price = 0;
+        for (Dish d : selectedDishes){
+            for(Ingredient i : d.getIngredients()){
+                price += i.getPrice();
+            }
+        }
+        return price;
+    }
+
+    /**
+     * Adds the passed dish to the menu. If the dish of that type already exists on the menu
+     * it is removed from the menu and the new one added.
+     */
+    public void addDishToMenu(Dish dish){
+        selectedDishes.add(dish);
+    }
+
+    /**
+     * Remove dish from menu
+     */
+    public void removeDishFromMenu(Dish dish){
+        selectedDishes.remove(dish);
+    }
 
 }
