@@ -14,13 +14,9 @@ public class Banner {
 		// store in the class the reference to the Android View
 		this.view = view;
 
-		TextView example = (TextView) view.findViewById(R.id.example_text);
-		example.setText("Welcome to Dinner Planner! \n\n" +
-                "Here you will be able to easily plan your dinner.\n\n" +
-                "On the next page start by selecting number of participants. Then select your courses.\n\n" +
-                "Watch Magic Happen!");
+		TextView example = (TextView) view.findViewById(R.id.banner);
+		example.setText("Dinner Planner");
 
-		// Setup the rest of the view layout
 	}
 
 }
