@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
-        layout="@layout/start_view"
+        layout="@layout/example_view"
         android:id="@+id/include" />
     <include
         android:layout_width="match_parent"
